@@ -35,8 +35,11 @@ public:
 	//Constructor - creation a layer with start conditions - or not?
 	Plast()
 	{
-		double* layer = new double[NX];
-		
+		p_layer[0] = p_inj;
+		p_layer[NX - 1] = p_prod;
+			for (int i = 1; i < NX-1; i++)
+			{
+				p_layer[i] = P0;
 	}
 	//Function prototypes
 
@@ -45,21 +48,10 @@ public:
 
 int main()
 {
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+	Plast oil;
+	for (int i = 0; i < oil.NX; i++)
+	{
+		std::cout << oil.p_layer[i] << "\t";
+	}
 	return 0;
 }
