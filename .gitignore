@@ -366,3 +366,5 @@ FodyWeavers.xsd
 /eigen-3.4.0
 /Count_Maths_ex_2/Tester/
 /Count_Maths_ex_2/filtration_of_viscous_liquid.cpp
+/Count_Maths_ex_2/Viscous layer/Viscous layer.vcxproj.filters
+/Count_Maths_ex_2/Viscous layer/Viscous layer.vcxproj
