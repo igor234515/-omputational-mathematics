@@ -1,1 +1,1 @@
-# Count_Maths
+# Repository for problems in Computational Mathematics
