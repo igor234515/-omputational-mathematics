@@ -25,6 +25,7 @@ public:
 	void print(double* ar);
 	Plast();
 	~Plast();
+	void Solve();
 private:
 
 	//Grid
@@ -52,6 +53,17 @@ Plast::Plast()
 		p_layer[i] = P0;
 	}
 	makematrix();
+}
+
+Plast::~Plast()
+{
+	delete[] p_layer;
+	delete[] a_diag;
+	delete[] b_diag;
+	delete[] c_diag;
+	delete[] d;
+	delete[] p;
+	delete[] q;
 }
 
 double Plast::ρ(double p)
@@ -97,10 +109,24 @@ void Plast::makematrix()
 
 void Plast::Thompson()
 {
-
+	p[1] = -b_diag[0] / a_diag[0];
+	q[1] = d[0] / a_diag[0];
+	for (uint8_t i = 1; i < NX-1; ++i)
+	{
+		p[i + 1] = -b_diag[i] / (c_diag[i] * p[i] + a_diag[i]);
+		q[i + 1] = (d[i] - c_diag[i] * q[i]) / (c_diag[i] * p[i] + a_diag[i]);
+	}
+	p_layer[NX - 1] = (d[NX - 1] - c_diag[NX - 1] * q[NX - 1]) / (c_diag[NX - 1] * p[NX - 1] + a_diag[NX - 1]);
+	for (int i = NX - 2; i >0  ; --i)
+	{
+		p_layer[i] = p_layer[i + 1] * p[i + 1] + q[i + 1];
+	}
 }
 
+void Plast::Solve()
+{
 
+}
 void Plast::print(double* ar)
 {
 	for (int i = 0; i < NX; ++i)
