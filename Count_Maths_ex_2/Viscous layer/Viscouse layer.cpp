@@ -18,11 +18,7 @@ public:
 	double P0 = 10132500.0;
 	double p_inj = 15198750.0;
 	double p_prod = 5066250.0;
-	double* p_layer = new double[NX];//for test, but it must be private
-	double* d = new double[NX];
-	double* c_diag = new double[NX];
-	double* a_diag = new double[NX];
-	double* b_diag = new double[NX];
+
 	void print(double* ar);
 	Plast();
 	~Plast();
@@ -35,6 +31,11 @@ private:
 	//For Thompson
 	double* p = new double[NX];
 	double* q = new double[NX];
+	double* p_layer = new double[NX];//for test, but it must be private
+	double* d = new double[NX];
+	double* c_diag = new double[NX];
+	double* a_diag = new double[NX];
+	double* b_diag = new double[NX];
 
 	//Function prototypes
 	double ρ(double p);
